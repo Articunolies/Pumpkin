@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         basesprite = transform.Find("basesprite").GetComponent<SpriteRenderer>();
         hidesprite = transform.Find("hidesprite").GetComponent<SpriteRenderer>();
+        basesprite.enabled = true;
+        hidesprite.enabled = false;
 
     }
 

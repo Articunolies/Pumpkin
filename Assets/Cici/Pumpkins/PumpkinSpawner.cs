@@ -29,7 +29,7 @@ public class PumpkinSpawner : MonoBehaviour
 
             // Instantiate the pumpkin and add it to the list
             GameObject spawnedPumpkin = Instantiate(pumpkin, position, Quaternion.identity);
-            spawnedPumpkin.GetComponent<SpriteRenderer>().sprite = pumpkinSprites[Random.Range(0, pumpkinSprites.Length)];
+            spawnedPumpkin.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pumpkinSprites[Random.Range(0, pumpkinSprites.Length)];
             spawnedPumpkins.Add(spawnedPumpkin); // Add to the list
 
             // Pick a random pair of vine sprites and instantiate them
