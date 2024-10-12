@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6936319103525313369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2735592597492830062}
+  - component: {fileID: 5296454065667139987}
+  m_Layer: 0
+  m_Name: PumpkinSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2735592597492830062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936319103525313369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5296454065667139987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936319103525313369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82a55d3985eb454f9a2d5748cac9619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startCount: 20
+  background: {fileID: 0}
+  pumpkin: {fileID: 5817990513682926427, guid: 6ef893f40e247354585a68425f700e98, type: 3}
+  vine: {fileID: 8750427492877425041, guid: 70fcf9bbd41248441834e8c14c02672b, type: 3}
+  pumpkinSprites:
+  - {fileID: 21300000, guid: 8ac786c5cf95393409da008ee9065ff4, type: 3}
+  - {fileID: 21300000, guid: b147331251f49c34bb1fd38ad7f50f11, type: 3}
+  - {fileID: 21300000, guid: 29bb679843d052141b33b6d5613d6d30, type: 3}
+  - {fileID: 21300000, guid: 7d30b4566ccaa1444a6787ba14a26a6f, type: 3}
+  - {fileID: 21300000, guid: 78c92f88eab43b14fb879db8721a16d3, type: 3}
+  - {fileID: 21300000, guid: b184d84131a4f474eb46fbf7310b2f21, type: 3}
+  vineSprites:
+  - {fileID: 21300000, guid: cef38ebd24046ba4d950202cf8af2aae, type: 3}
+  - {fileID: 21300000, guid: 499becda078fd6d429e0152e3936d4ac, type: 3}
+  - {fileID: 21300000, guid: 4a718905bce35334bb10ba5740fd4d78, type: 3}
+  - {fileID: 21300000, guid: 7eea26d8a8bb4f34f8804605287f6a28, type: 3}
+  - {fileID: 21300000, guid: 590e321fa841a144c80c8ebf9f17fe1b, type: 3}
+  - {fileID: 21300000, guid: f0e5d9d236a73534e8ddb52237ed5948, type: 3}
+  - {fileID: 21300000, guid: ac1ceb08cc8f1414da2bb65e17d7fcf6, type: 3}
+  - {fileID: 21300000, guid: e87f31e485452a142975077b8becb952, type: 3}
+  - {fileID: 21300000, guid: 5d028aeb3766d2343893d2bc8fbf82d0, type: 3}
+  - {fileID: 21300000, guid: e0817404ed8a2884c9c43b5818c23af3, type: 3}
+  - {fileID: 21300000, guid: 6c0cc41bc07092047bcb909bceeeb774, type: 3}
+  - {fileID: 21300000, guid: 3e859ed29fcec884681cfec79db2ace5, type: 3}
+  - {fileID: 21300000, guid: 3d46ff4cbcdf10347a1f9bf07f707c31, type: 3}
+  - {fileID: 21300000, guid: 1eb8b1aa84126f6409be10c27fa657c4, type: 3}
+  - {fileID: 21300000, guid: 358cc704c49b13b4cbdec2ec323ac672, type: 3}
+  - {fileID: 21300000, guid: 42673866089d3824fa25f4ac65e2ed44, type: 3}
+  spawnedPumpkins: []
