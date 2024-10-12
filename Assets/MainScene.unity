@@ -705,6 +705,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2702852108177933009, guid: fa6b5b54006bb854087f51b56d858b26, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1101267988450245394, guid: fa6b5b54006bb854087f51b56d858b26, type: 3}
+    - target: {fileID: -2702852108177933009, guid: fa6b5b54006bb854087f51b56d858b26, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 565236959}
@@ -988,6 +992,14 @@ MonoBehaviour:
   startCount: 20
   background: {fileID: 460529928}
   pumpkin: {fileID: 5817990513682926427, guid: 6ef893f40e247354585a68425f700e98, type: 3}
+  pumpkinSprites:
+  - {fileID: 21300000, guid: 8ac786c5cf95393409da008ee9065ff4, type: 3}
+  - {fileID: 21300000, guid: b147331251f49c34bb1fd38ad7f50f11, type: 3}
+  - {fileID: 21300000, guid: 29bb679843d052141b33b6d5613d6d30, type: 3}
+  - {fileID: 21300000, guid: 7d30b4566ccaa1444a6787ba14a26a6f, type: 3}
+  - {fileID: 21300000, guid: 78c92f88eab43b14fb879db8721a16d3, type: 3}
+  - {fileID: 21300000, guid: b184d84131a4f474eb46fbf7310b2f21, type: 3}
+  spawnedPumpkins: []
 --- !u!4 &1933756010
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class PumpkinSpawner : MonoBehaviour
     public int startCount = 20;
     public GameObject background;
     public GameObject pumpkin;
+    public Sprite[] pumpkinSprites;
 
     Renderer bgRenderer;
     Bounds bgBounds;
@@ -26,6 +27,7 @@ public class PumpkinSpawner : MonoBehaviour
 
             // Instantiate the pumpkin and add it to the list
             GameObject spawnedPumpkin = Instantiate(pumpkin, position, Quaternion.identity);
+            spawnedPumpkin.GetComponent<SpriteRenderer>().sprite = pumpkinSprites[Random.Range(0, pumpkinSprites.Length)];
             spawnedPumpkins.Add(spawnedPumpkin); // Add to the list
         }
 
