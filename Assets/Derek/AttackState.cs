@@ -88,7 +88,7 @@ public class AttackState : State
 
     private void MoveToPlayer()
     {
-        // Request a path to the player’s current position
+        // Request a path to the playerï¿½s current position
         seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
     }
 
