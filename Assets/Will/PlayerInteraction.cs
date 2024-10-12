@@ -11,8 +11,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private bool hasPumpkin = false;
     [SerializeField] private float throwSpeed = 10f;
     [SerializeField] private float throwOffset = 1.25f;
+    [SerializeField] private float rayCastConeSize = 10f;
     private GameObject grabbedPumpkin;
     RaycastHit2D rayCheck;
+    RaycastHit2D rayCheckLeft;
+    RaycastHit2D rayCheckRight;
     Vector2 movement;
     Vector2 lastMoveDir;
     
@@ -25,11 +28,20 @@ public class PlayerInteraction : MonoBehaviour
             // Save last moving direction
             lastMoveDir = movement;
         }
+        Vector2 leftDir = Quaternion.Euler(0, 0, rayCastConeSize) * lastMoveDir;
+        Vector2 rightDir = Quaternion.Euler(0, 0, -rayCastConeSize) * lastMoveDir;
+        rayCheckLeft = Physics2D.Raycast(transform.position, leftDir, interactDistance, layerToCheck);
+        rayCheckRight = Physics2D.Raycast(transform.position, rightDir, interactDistance, layerToCheck);
         rayCheck = Physics2D.Raycast(transform.position, lastMoveDir, interactDistance, layerToCheck);
+        
+        Debug.DrawRay(transform.position, leftDir*interactDistance, Color.white);
+        Debug.DrawRay(transform.position, rightDir*interactDistance, Color.white);
+        Debug.DrawRay(transform.position, lastMoveDir*interactDistance, Color.white);
+
         if(Input.GetKeyDown(KeyCode.E)){
              if (hasPumpkin){
                 ThrowPumpkin();
-            } else if(rayCheck.collider != null){
+            } else if(rayCheck.collider != null || rayCheckLeft != null || rayCheckRight != null){
                 // Cast ray to get pumpkin
                 grabbedPumpkin = rayCheck.collider.gameObject;
                 if(!hasPumpkin){
