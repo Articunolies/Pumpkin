@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 1663149755
+    locked: 0
   - name: BehindBG
     uniqueID: 774891487
     locked: 0
@@ -49,7 +52,4 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Sky
-    uniqueID: 1663149755
     locked: 0
