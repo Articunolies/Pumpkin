@@ -1,34 +1,60 @@
+using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class PumpkinSpottedTransition : Transition
 {
-    private GameObject pumpkin;  // Reference to the pumpkin
+    private List<GameObject> pumpkins;  // List of all pumpkins
     private GameObject owner;    // Reference to the enemy (goose)
     private VisionCone visionCone; // Reference to the vision cone component
+    private GameObject player;
+    private StateMachine stateMachine;
 
-    public PumpkinSpottedTransition(GameObject owner, GameObject pumpkin) : base(owner)
+    public PumpkinSpottedTransition(StateMachine stateMachine, GameObject owner, List<GameObject> pumpkins, GameObject player) : base(owner)
     {
         this.owner = owner;
-        this.pumpkin = pumpkin;
+        this.pumpkins = pumpkins;
         this.visionCone = owner.GetComponent<VisionCone>(); // Get the vision cone component from the enemy
+        this.player = player;
+        this.stateMachine = stateMachine;
     }
 
     public override bool ShouldTransition()
     {
-        // Check if the pumpkin is inside the vision cone (no need to check for movement)
-        if (pumpkin != null && visionCone.IsTargetInVision(pumpkin))
+        // Check if any pumpkin is detected in the vision cone
+        foreach (GameObject pumpkin in pumpkins)
         {
-            Debug.Log("Player Spotted Transition.");
+            if (pumpkin != null && visionCone.IsTargetInVision(pumpkin))
+            {
+                MovementDetector movementDetector = player.GetComponent<MovementDetector>();
+                if (movementDetector != null && movementDetector.isMoving)
+                {
+                    Debug.Log("Player Spotted Transition.");
 
-            return true; // Transition to attack state if the pumpkin is in the vision cone
+                    return true; // Player is in the vision cone and moving, so transition to attack state
+                }
+            }
         }
 
-        return false; // No transition if the pumpkin is not in the vision cone
+        return false; // No pumpkin detected, no transition
     }
+
+
+
 
     public override State GetNextState()
     {
-        // Transition to the AttackState and pass the pumpkin as the target
-        return new AttackState(owner, pumpkin); // Attack the pumpkin
+        foreach (GameObject pumpkin in pumpkins)
+        {
+            Debug.Log($"{pumpkin.name}");
+            if (pumpkin != null && visionCone.IsTargetInVision(pumpkin))
+            {
+                Debug.Log("Switching to AttackState targeting: " + pumpkin.name);
+                return new AttackState(stateMachine, owner, pumpkin, player, pumpkins); // Attack the detected pumpkin
+            }
+        }
+
+        return null; // This should never happen since we check in ShouldTransition()
     }
+
 }
