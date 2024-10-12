@@ -885,6 +885,42 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 460529928}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e958176fb4de2ea4e8ec4b7e17758ba4, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 032197de85c52bd4d9583705bcac6811, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c55b4719432aa7418ec9a660b647a1e, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: b6685e044ccf7d34a957704dfd798b14, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7729f319d01e09f468cde1d3c2946131, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: cfdea27dd82a2d449b017a5be2c1f688, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7bc96a628a729a9449571ab3a438ed4e, type: 3}
+    - target: {fileID: 5296454065667139987, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
+      propertyPath: vineSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 623d3d901488d0446b37e3499cdb56e5, type: 3}
     - target: {fileID: 6936319103525313369, guid: 5932766e1840fe846b8fb6135b7056f4, type: 3}
       propertyPath: m_Name
       value: PumpkinSpawner
