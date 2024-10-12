@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -6,12 +7,17 @@ public class PlayerSpottedTransition : Transition
     private GameObject player;  // Reference to the player
     private GameObject owner;   // Reference to the enemy (goose)
     private VisionCone visionCone; // Reference to the vision cone component
+    private List<GameObject> pumpkins;
+    private StateMachine stateMachine;
 
-    public PlayerSpottedTransition(GameObject owner, GameObject player) : base(owner)
+
+    public PlayerSpottedTransition(StateMachine stateMachine, GameObject owner, GameObject player, List<GameObject> pumpkins) : base(owner)
     {
         this.owner = owner;
         this.player = player;
+        this.pumpkins = pumpkins;
         this.visionCone = owner.GetComponent<VisionCone>(); // Get the vision cone component from the enemy
+        this.stateMachine = stateMachine;
     }
 
     public override bool ShouldTransition()
@@ -36,6 +42,6 @@ public class PlayerSpottedTransition : Transition
     public override State GetNextState()
     {
         // Transition to the AttackState and pass both owner and player
-        return new AttackState(owner, player);
+        return new AttackState(stateMachine, owner, player, player, pumpkins);
     }
 }

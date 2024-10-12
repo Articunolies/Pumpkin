@@ -12,12 +12,18 @@ public class AttackState : State
     public float attackRadius = 5f; // Radius for triggering the attack
     private GameObject target;
     private float distanceToPlayer; // Distance between goose and player
+    private GameObject player;
+    private List<GameObject> pumpkins;
+    private StateMachine stateMachine;
 
-    public AttackState(GameObject owner, GameObject target) : base(owner)
+    public AttackState(StateMachine stateMachine, GameObject owner, GameObject target, GameObject player, List<GameObject> pumpkins) : base(owner)
     {
         seeker = owner.GetComponent<Seeker>();
         rb = owner.GetComponent<Rigidbody2D>();
         this.target = target; // Assign the player reference
+        this.pumpkins = pumpkins;
+        this.player = player;
+        this.stateMachine = stateMachine;
     }
 
     public override void OnEnter()
@@ -39,7 +45,7 @@ public class AttackState : State
 
         if (distanceToPlayer <= attackRadius)
         {
-            AttackPlayer(); // Trigger the attack when within radius
+            AttackTarget(); // Trigger the attack when within radius
             return; // Stop further movement
         }
 
@@ -100,10 +106,30 @@ public class AttackState : State
         }
     }
 
-    private void AttackPlayer()
+    private void AttackTarget()
     {
-        // Perform the attack (play animation, reduce health, etc.)
-        Debug.Log("Goose attacks the player!");
-        // Add your attack logic here (e.g., destroy the player object or reduce health)
+        if (target.CompareTag("Pumpkin"))
+        {
+            // Play pumpkin destruction animation
+            pumpkins.Remove(target);
+            Debug.Log("Pumpkin Die");
+            // Call respawn method for the pumpkin
+        }
+        else if (target.CompareTag("Player"))
+        {
+            // End the game logic for the player
+            Debug.Log("Player Die");
+        }
+        else
+        {
+            Debug.LogWarning("Unknown target type.");
+        }
+
+        // Destroy the target
+        target.SetActive(false);
+        target = null;
+        
+        stateMachine.SetState(new PatrolState(stateMachine, owner, player, pumpkins));
+
     }
 }

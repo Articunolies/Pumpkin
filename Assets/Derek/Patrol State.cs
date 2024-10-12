@@ -13,14 +13,16 @@ public class PatrolState : State
     private GameObject player; // Reference to the player
     private List<GameObject> pumpkins;
     private VisionCone visionCone; // Reference to the VisionCone component
+    private StateMachine stateMachine;
 
-    public PatrolState(GameObject owner, GameObject player, List<GameObject> pumpkins) : base(owner)
+    public PatrolState(StateMachine stateMachine, GameObject owner, GameObject player, List<GameObject> pumpkins) : base(owner)
     {
         seeker = owner.GetComponent<Seeker>();
         rb = owner.GetComponent<Rigidbody2D>();
         this.player = player; // Assign the player reference
         this.pumpkins = pumpkins;
         this.visionCone = owner.GetComponent<VisionCone>(); // Get the vision cone component
+        this.stateMachine = stateMachine;
     }
 
     public override void OnEnter()
@@ -71,8 +73,8 @@ public class PatrolState : State
         // Return both PlayerSpottedTransition and PumpkinSpottedTransition
         return new List<Transition>
         {
-            new PlayerSpottedTransition(owner, player),
-            new PumpkinSpottedTransition(owner, pumpkins) // Pass the list of pumpkins
+            new PlayerSpottedTransition(stateMachine, owner, player, pumpkins),
+            new PumpkinSpottedTransition(stateMachine, owner, pumpkins, player) // Pass the list of pumpkins
         };
     }
 

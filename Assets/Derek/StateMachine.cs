@@ -1,6 +1,6 @@
 public class StateMachine
 {
-    private State currentState;
+    public State currentState;
 
     public void SetState(State newState)
     {
