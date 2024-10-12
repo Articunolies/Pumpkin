@@ -75,8 +75,11 @@ public class PumpkinSpawner : MonoBehaviour
 
         // Find the AIController in the scene and pass the entire list of pumpkins
         AIController aiController = FindObjectOfType<AIController>();  // Find the AIController in the scene
+        Debug.Log("Testing this bull");
+        Debug.Log(aiController);
         if (aiController != null && spawnedPumpkins.Count > 0)
         {
+            Debug.Log("Added Pumpkin");
             aiController.SetPumpkinTargets(spawnedPumpkins); // Pass the full list of pumpkins
         }
 
