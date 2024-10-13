@@ -28,7 +28,12 @@ public class PatrolState : State
     public override void OnEnter()
     {
         Debug.Log("Enemy started random patrol.");
+        if (seeker == null)
+        {
+            Debug.LogError("Seeker component is missing!");
+        }
         MoveToRandomPoint(); // Move to the first random point
+
     }
 
     public override void OnUpdate()
@@ -36,6 +41,7 @@ public class PatrolState : State
         // Ensure the path is valid
         if (path == null || path.vectorPath == null || path.vectorPath.Count == 0)
         {
+            Debug.Log("No Valid Path");
             return; // No valid path
         }
 
@@ -86,11 +92,23 @@ public class PatrolState : State
         randomDirection += Vector3.zero; // Fixed patrol around (0,0)
 
         // Request a path to the random point
+        Debug.Log("Starting path to: " + randomDirection);
         seeker.StartPath(rb.position, randomDirection, OnPathComplete);
+        Debug.Log("Path is fun");
+        if (seeker.IsDone())
+        {
+            Debug.Log("Seeker is ready for a new path.");
+            seeker.StartPath(rb.position, randomDirection, OnPathComplete);
+        }
+        else
+        {
+            Debug.LogWarning("Seeker is still calculating the previous path.");
+        }
     }
 
     private void OnPathComplete(Path p)
     {
+        Debug.Log("PAHT COMPLETE");
         if (!p.error)
         {
             Debug.Log("Path successfully calculated");

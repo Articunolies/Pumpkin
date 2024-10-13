@@ -25,10 +25,9 @@ public class PlayerSpottedTransition : Transition
         // Check if the player is inside the vision cone and moving
         if (player != null && visionCone.IsTargetInVision(player))
         {
-            MovementDetector movementDetector = player.GetComponent<MovementDetector>();
-
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
             // Check if the player is moving
-            if (movementDetector != null && movementDetector.isMoving)
+            if (playerMovement != null && playerMovement.ishiding != true)
             {
                 Debug.Log("Player Spotted Transition.");
 
