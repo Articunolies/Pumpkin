@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f95ea066b5636346893fef48f3544ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritemask: {fileID: 0}
+  spritemask: {fileID: 4761058263551146207, guid: efeba0827166efc45997e57078841250, type: 3}
   interpolationFramesCount: 10
 --- !u!212 &1827791951002094802
 SpriteRenderer:
