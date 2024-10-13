@@ -26,7 +26,7 @@ public class PumpkinSpottedTransition : Transition
         {
             if (pumpkin != null && visionCone.IsTargetInVision(pumpkin))
             {
-                MovementDetector movementDetector = player.GetComponent<MovementDetector>();
+                MovementDetector movementDetector = pumpkin.GetComponent<MovementDetector>();
                 if (movementDetector != null && movementDetector.isMoving)
                 {
                     Debug.Log("Player Spotted Transition.");

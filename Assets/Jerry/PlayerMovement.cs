@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     //direction of player determined by arrow keys / wasd
 
     Vector3 rotationdirection;
-    bool ishiding = false;
-    bool issprinting = false;
+    public bool ishiding = false;
+    public bool issprinting = false;
     bool isrolling = false;
     bool stoprolling = false;
     Rigidbody2D rb;
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         basesprite = transform.Find("basesprite").GetComponent<SpriteRenderer>();
         hidesprite = transform.Find("hidesprite").GetComponent<SpriteRenderer>();
+        basesprite.enabled = true;
+        hidesprite.enabled = false;
 
     }
 

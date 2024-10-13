@@ -9,7 +9,7 @@ public class AttackState : State
     private Path path;
     private int currentWaypoint = 0;
     public float speed = 25f;
-    public float attackRadius = 5f; // Radius for triggering the attack
+    public float attackRadius = 1f; // Radius for triggering the attack
     private GameObject target;
     private float distanceToPlayer; // Distance between goose and player
     private GameObject player;
