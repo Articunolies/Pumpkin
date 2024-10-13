@@ -1335,9 +1335,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1221162729547218380, guid: d69cdd73cc1d12c4092b4f595b35ca45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221162729547218380, guid: d69cdd73cc1d12c4092b4f595b35ca45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5134687772496713894, guid: d69cdd73cc1d12c4092b4f595b35ca45, type: 3}
       propertyPath: m_Name
       value: GameSceneUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627762378117125491, guid: d69cdd73cc1d12c4092b4f595b35ca45, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 187311a27a494cd41bb5511428070266, type: 3}
+    - target: {fileID: 8627762378117125491, guid: d69cdd73cc1d12c4092b4f595b35ca45, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
