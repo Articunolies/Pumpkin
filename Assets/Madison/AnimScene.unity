@@ -366,6 +366,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3530099945002183704, guid: 53309ea385eaf7d4d92ac03452b7ffe2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 402870027}
+    - target: {fileID: 3530099945002183704, guid: 53309ea385eaf7d4d92ac03452b7ffe2, type: 3}
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 402870027}
@@ -698,6 +702,7 @@ MonoBehaviour:
   background: {fileID: 460529928}
   pumpkin: {fileID: 5817990513682926427, guid: 6ef893f40e247354585a68425f700e98, type: 3}
   vine: {fileID: 8750427492877425041, guid: 70fcf9bbd41248441834e8c14c02672b, type: 3}
+  vineOffset: 0.5
   pumpkinSprites:
   - {fileID: 21300000, guid: 8ac786c5cf95393409da008ee9065ff4, type: 3}
   - {fileID: 21300000, guid: b147331251f49c34bb1fd38ad7f50f11, type: 3}

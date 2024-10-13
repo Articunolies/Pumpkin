@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] GameObject pumpkinPrefab;
-    [SerializeField] GameObject playerPrefab;
+    [SerializeField] GameObject player;
     private Animator animator;
     private PlayerInteraction playerInteraction; 
     private PlayerMovement playerMovement;
@@ -14,22 +13,31 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
-        playerInteraction = pumpkinPrefab.GetComponent<PlayerInteraction>();
-        playerMovement = playerPrefab.GetComponent<PlayerMovement>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerInteraction = player.GetComponent<PlayerInteraction>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (playerInteraction.hasPumpkin == true) {
-        //     animator.SetBool("pumpkinAnim", true);
-        // }
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) {
+            animator.SetBool("moveAnim", true);
+        } else {
+            animator.SetBool("moveAnim", false);
+        }
+        
+        if (playerInteraction.GetPumpkin() == true) {
+            animator.SetBool("pumpkinAnim", true);
+        }
+        if (playerInteraction.GetPumpkin() == false) {
+            animator.SetBool("pumpkinAnim", false);
+        }
 
-        // if (playerMovement.issprinting == true) {
-        //     animator.SetBool("sprintAnim", true);
-        // }
-        // if (playerMovement.issprinting == false) {
-        //     animator.SetBool("sprintAnim", false);
-        // }
+        if (playerMovement.issprinting == true) {
+            animator.speed = 2;
+        }
+        if (playerMovement.issprinting == false) {
+            animator.speed = 1;
+        }
     }
 }
