@@ -1,6 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class AttackState : State
 {
@@ -130,6 +131,6 @@ public class AttackState : State
         target = null;
         
         stateMachine.SetState(new PatrolState(stateMachine, owner, player, pumpkins));
-
+        SceneManager.LoadScene(1);
     }
 }

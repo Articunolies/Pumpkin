@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
         while(currentTime >= 0) 
         {
             timerImage.fillAmount = Mathf.InverseLerp(0, duration, currentTime);
-            timerImage.color = Color.Lerp(new Color(1,0,0,0.5f), new Color(0,1,0,0.5f), Mathf.InverseLerp(0, duration, currentTime));
+            timerImage.color = Color.Lerp(new Color(1,0,0,1f), new Color(0,1,0,1f), Mathf.InverseLerp(0, duration, currentTime));
             yield return new WaitForSeconds(1f);
             currentTime--;
         }
