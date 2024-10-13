@@ -9,6 +9,7 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip[] chatter;
     public AudioClip[] nervous;
     public AudioClip[] reaction;
+    public AudioClip[] foliage;
 
     Rigidbody2D rb;
     AudioSource audioSource;
@@ -48,11 +49,11 @@ public class PlayerSounds : MonoBehaviour
                 if (!playerMovement.issprinting) {
                     int randomIndex = Random.Range(0, regularSteps.Length);
                     audioSource.clip = regularSteps[randomIndex];
-                    audioSource.Play();
+                    audioSource.PlayOneShot(audioSource.clip);
                 } else {
                     int randomIndex = Random.Range(0, sprintSteps.Length);
                     audioSource.clip = sprintSteps[randomIndex];
-                    audioSource.Play();
+                    audioSource.PlayOneShot(audioSource.clip);
                 }
                 stepFrame = 0;
             } else {stepFrame++;}
@@ -88,5 +89,12 @@ public class PlayerSounds : MonoBehaviour
         audioSource.clip = reaction[randomIndex];
         audioSource.PlayOneShot(audioSource.clip);
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Foliage") { 
+            int randomIndex = Random.Range(0, foliage.Length);
+            audioSource.clip = foliage[randomIndex];
+            audioSource.Play();
+        }
+    }
 }
