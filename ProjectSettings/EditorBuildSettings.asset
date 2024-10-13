@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MainScene.unity
+    path: Assets/Scenes/MainScene.unity
     guid: 9db43434e541bfb4cb78368062ab7a09
   - enabled: 0
-    path: Assets/Madison/TimerScene.unity
+    path: Assets/Misc/Madison/TimerScene.unity
     guid: 289aac5ddec98cf468f02dd73e0adf68
   - enabled: 1
-    path: Assets/Madison/GameOver.unity
+    path: Assets/Misc/Madison/GameOver.unity
     guid: d90aaecbf8b71714f97b19e579038932
   m_configObjects: {}
