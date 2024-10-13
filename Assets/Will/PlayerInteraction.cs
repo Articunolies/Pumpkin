@@ -28,6 +28,7 @@ public class PlayerInteraction : MonoBehaviour
             // Save last moving direction
             lastMoveDir = movement;
         }
+        lastMoveDir = lastMoveDir.normalized;
         Vector2 leftDir = Quaternion.Euler(0, 0, rayCastConeSize) * lastMoveDir;
         Vector2 rightDir = Quaternion.Euler(0, 0, -rayCastConeSize) * lastMoveDir;
         rayCheckLeft = Physics2D.Raycast(transform.position, leftDir, interactDistance, layerToCheck);
@@ -41,9 +42,14 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
              if (hasPumpkin){
                 ThrowPumpkin();
-            } else if(rayCheck.collider != null || rayCheckLeft != null || rayCheckRight != null){
-                // Cast ray to get pumpkin
-                grabbedPumpkin = rayCheck.collider.gameObject;
+            } else if(rayCheck.collider != null || rayCheckLeft.collider != null || rayCheckRight.collider != null) {
+                if (rayCheck.collider != null){
+                    grabbedPumpkin = rayCheck.collider.gameObject;
+                } else if (rayCheckLeft.collider != null) {
+                    grabbedPumpkin = rayCheckLeft.collider.gameObject;
+                } else if (rayCheckRight.collider != null) {
+                    grabbedPumpkin = rayCheckRight.collider.gameObject;
+                }
                 if(!hasPumpkin){
                     // Physics update when grabbed
                     grabbedPumpkin.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -54,7 +60,6 @@ public class PlayerInteraction : MonoBehaviour
                     // Set onto player
 
                     //grabbedPumpkin.transform.SetParent(transform, true);
-                    //grabbedPumpkin.transform.localScale = new Vector3(1/transform.localScale.x, 1/transform.localScale.y, 1);
                     //grabbedPumpkin.transform.localPosition = new Vector3(0,5,0);
 
                     //offset by player size
@@ -82,7 +87,7 @@ public class PlayerInteraction : MonoBehaviour
             grabbedPumpkin.GetComponent<Rigidbody2D>().freezeRotation = false;
             grabbedPumpkin.GetComponent<PolygonCollider2D>().enabled = true;
             // Removing parenting
-            //grabbedPumpkin.transform.SetParent(null);
+            grabbedPumpkin.transform.SetParent(null);
             // Set up throwing position
             offsetPos = (Vector2)transform.position + lastMoveDir.normalized * throwOffset;
             grabbedPumpkin.transform.position = offsetPos;
@@ -92,6 +97,15 @@ public class PlayerInteraction : MonoBehaviour
             grabbedPumpkin = null;
             hasPumpkin = false;
         }
+    } 
+    public bool GetHasPumpkin(){
+        return hasPumpkin;
+    }
+    public void SetHasPumpkin(bool state){
+        hasPumpkin = state;
+    }
+    public GameObject GetPumpkin(){
+        return grabbedPumpkin;
     }
     void Update()
     {
