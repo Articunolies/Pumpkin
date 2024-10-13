@@ -10,9 +10,12 @@ public class PumpkinController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float rotationSpeed = 10f;
 
+    AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void RotateDirection(){
@@ -25,6 +28,12 @@ public class PumpkinController : MonoBehaviour
         if(rb.velocity != Vector2.zero){
             moveDirection = rb.velocity;
             RotateDirection();
+        }
+
+        if (rb.velocity.magnitude > 1){
+            if (!audioSource.isPlaying) {audioSource.Play();}
+        } else {
+            audioSource.Stop();
         }
     }
 }

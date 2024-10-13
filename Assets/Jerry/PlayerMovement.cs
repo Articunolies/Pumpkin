@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 rotationdirection;
     public bool ishiding = false;
-    bool issprinting = false;
+    public bool issprinting = false;
     bool isrolling = false;
     bool stoprolling = false;
     Rigidbody2D rb;

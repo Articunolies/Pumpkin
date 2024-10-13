@@ -20,6 +20,11 @@ public class PlayerInteraction : MonoBehaviour
     Vector2 lastMoveDir;
     
     Vector3 offsetPos;
+    PlayerSounds playerSounds;
+
+    void Start() {
+        playerSounds = GetComponent<PlayerSounds>();
+    }
 
     private void HandleInteract(){
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -65,6 +70,7 @@ public class PlayerInteraction : MonoBehaviour
                     //offset by player size
                     
                     hasPumpkin = true;
+                    playerSounds.Reaction();
                 }
                 else {
                     Debug.DrawRay(transform.position, lastMoveDir*interactDistance, Color.white);
@@ -82,6 +88,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     private void ThrowPumpkin(){
         if(grabbedPumpkin != null){
+            playerSounds.Reaction();
             // Physics update when dropped/thrown
             grabbedPumpkin.GetComponent<Rigidbody2D>().isKinematic = false;
             grabbedPumpkin.GetComponent<Rigidbody2D>().freezeRotation = false;
